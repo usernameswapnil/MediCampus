@@ -4,7 +4,7 @@ import axios from 'axios';
 const DeleteModal = (props) => {
   const handleDelete=async ()=>{
     if(props.clickedItem){
-      await axios.delete(`http://localhost:4000/api/gallery/delete/${props.clickedItem._id}`,{withCredentials:true}).then(resp=>{
+      await axios.delete(`https://medicampus-3.onrender.com/api/gallery/delete/${props.clickedItem._id}`,{withCredentials:true}).then(resp=>{
       window.location.reload();
       }).catch(err=>{
         alert("Something went wrong!")

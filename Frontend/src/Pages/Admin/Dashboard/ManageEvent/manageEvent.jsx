@@ -10,7 +10,7 @@ const ManageEvent = (props) => {
   const fetchData = async () => {
     props.showLoader();
     await axios
-      .get(`http://localhost:4000/api/notification/get`)
+      .get(`https://medicampus-3.onrender.com/api/notification/get`)
       .then((resp) => {
         console.log(resp);
         setData(resp.data.notifications);
@@ -31,7 +31,7 @@ const ManageEvent = (props) => {
     e.preventDefault();
     if(title.trim().length===0)return toast.error("Please enter the title");
     props.showLoader();
-    await axios.post("http://localhost:4000/api/notification/add",{title},{withCredentials:true}).then((resp)=>{
+    await axios.post("https://medicampus-3.onrender.com/api/notification/add",{title},{withCredentials:true}).then((resp)=>{
       setData([resp.data.notification,...data]);
       setTitle("")
     }).catch((err) => {
@@ -48,7 +48,7 @@ const ManageEvent = (props) => {
   }
   const handleDeleteEvent=async(id)=>{
     props.showLoader();
-    await axios.delete(`http://localhost:4000/api/notification/delete/${id}`,{withCredentials:true}).then((resp)=>{
+    await axios.delete(`https://medicampus-3.onrender.com/api/notification/delete/${id}`,{withCredentials:true}).then((resp)=>{
       filterOutEvent(id)
     }).catch((err) => {
         toast.error(err?.response?.data?.error);

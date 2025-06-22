@@ -15,7 +15,7 @@ const Staff = (props) => {
   }
   const fetchData=async()=>{
     props.showLoader(); 
-    await axios.get("http://localhost:4000/api/auth/get-staff").then((response)=>{
+    await axios.get("https://medicampus-3.onrender.com/api/auth/get-staff").then((response)=>{
      
       getFormattedData(response.data.staffs)
     }).catch(err=>{

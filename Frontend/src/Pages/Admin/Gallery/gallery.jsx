@@ -25,7 +25,7 @@ const Gallery = (props) => {
     }
     const fetchData=async()=>{
       props.showLoader();
-      await axios.get("http://localhost:4000/api/gallery/get").then(resp=>{
+      await axios.get("https://medicampus-3.onrender.com/api/gallery/get").then(resp=>{
         console.log(resp);
         setData(resp.data.images);
       }).catch(err=>{

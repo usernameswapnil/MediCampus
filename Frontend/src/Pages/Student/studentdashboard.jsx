@@ -12,7 +12,7 @@ const Studentdashboard = (props) => {
     const[selectedHistory,setSelectedHistory]=useState(null);
     const fetchData=async()=>{
       props.showLoader();
-      await axios.get(`http://localhost:4000/api/history/get?roll=${userInfo?.roll}`,{withCredentials:true}).then(resp=>{
+      await axios.get(`https://medicampus-3.onrender.com/api/history/get?roll=${userInfo?.roll}`,{withCredentials:true}).then(resp=>{
         console.log(resp);
         setHistory(resp.data.history)
       }).catch(err => {

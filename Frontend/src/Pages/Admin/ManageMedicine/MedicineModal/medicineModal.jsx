@@ -14,7 +14,7 @@ const MedicineModal = (props) => {
     },[])
     const updateValue=async()=>{
       props.showLoader();
-      await axios.put(`http://localhost:4000/api/medicine/update/${props.clickedMedicine._id}`,medicine,{withCredentials:true}).then((resp)=>{
+      await axios.put(`https://medicampus-3.onrender.com/api/medicine/update/${props.clickedMedicine._id}`,medicine,{withCredentials:true}).then((resp)=>{
         window.location.reload();
 
       }).catch(err=>{
@@ -33,7 +33,7 @@ const MedicineModal = (props) => {
           return toast.error("Please enter all the fields");
         }
         props.showLoader();
-        await axios.post("http://localhost:4000/api/medicine/add",medicine,{withCredentials:true}).then((resp)=>{
+        await axios.post("https://medicampus-3.onrender.com/api/medicine/add",medicine,{withCredentials:true}).then((resp)=>{
           window.location.reload();
 
         }).catch(err=>{

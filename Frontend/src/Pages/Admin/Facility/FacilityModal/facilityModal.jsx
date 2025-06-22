@@ -13,7 +13,7 @@ const FacilityModal = (props) => {
       }
     },[])
     const updateFacility=async()=>{
-      await axios.put(`http://localhost:4000/api/facility/update/${props.clickedItem._id}`,inputField,{withCredentials:true}).then((resp)=>{
+      await axios.put(`https://medicampus-3.onrender.com/api/facility/update/${props.clickedItem._id}`,inputField,{withCredentials:true}).then((resp)=>{
         window.location.reload();
       }).catch(err=>{
         toast.error(err?.response?.data?.error)
@@ -29,7 +29,7 @@ const FacilityModal = (props) => {
           updateFacility();
           return;
         }
-        await axios.post("http://localhost:4000/api/facility/add",inputField,{withCredentials:true}).then(resp=>{
+        await axios.post("https://medicampus-3.onrender.com/api/facility/add",inputField,{withCredentials:true}).then(resp=>{
           window.location.reload();
         }).catch(err=>{
           toast.error(err?.response?.data?.error)

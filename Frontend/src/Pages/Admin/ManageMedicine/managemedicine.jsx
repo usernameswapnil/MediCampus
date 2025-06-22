@@ -28,7 +28,7 @@ const Managemedicine = (props) => {
     props.showLoader();
     await axios
       .get(
-        `http://localhost:4000/api/medicine/search-by-name?name=${medicineSearch}`
+        `https://medicampus-3.onrender.com/api/medicine/search-by-name?name=${medicineSearch}`
       )
       .then((resp) => {
         console.log(resp);
@@ -55,7 +55,7 @@ const Managemedicine = (props) => {
 
   const handleDelete=async(id)=>{
     props.showLoader();
-    await axios.delete(`http://localhost:4000/api/medicine/delete/${id}`,{withCredentials:true}).then((resp)=>{
+    await axios.delete(`https://medicampus-3.onrender.com/api/medicine/delete/${id}`,{withCredentials:true}).then((resp)=>{
       filterOutMedicine(id)
     }).catch((err) => {
         toast.error(err?.response?.data?.error);

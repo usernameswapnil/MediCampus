@@ -21,7 +21,7 @@ const Facility = (props) => {
 
   const fetchData = async () => {
     props.showLoader();
-    await axios.get("http://localhost:4000/api/facility/get")
+    await axios.get("https://medicampus-3.onrender.com/api/facility/get")
       .then((resp) => {
         setData(resp.data.facility);
       })

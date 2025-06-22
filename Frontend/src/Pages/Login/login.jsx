@@ -26,7 +26,7 @@ const Login = (props) => {
         if(loginField.email.trim()==="" || loginField.password.trim()==="")return toast.error("Please enter the credentials");
         props.showLoader();
 
-        await axios.post("http://localhost:4000/api/auth/login",loginField,{withCredentials:true}).then((response)=>{
+        await axios.post("https://medicampus-3.onrender.com/api/auth/login",loginField,{withCredentials:true}).then((response)=>{
             console.log(response);
             localStorage.setItem("token",response.data.token);
             localStorage.setItem("userInfo",JSON.stringify(response.data.user));
@@ -50,7 +50,7 @@ const Login = (props) => {
         if(registerField.email.trim()===""|| registerField.password.trim()===""||registerField.name.trim()===""||registerField.roll.trim()==="") return toast.error("Please enter all the credentials");
         if(registerField.name.length<3) return toast.error("Name should be greater than 2 characters");
         props.showLoader();
-        await axios.post("http://localhost:4000/api/auth/register",registerField).then(response=>{
+        await axios.post("https://medicampus-3.onrender.com/api/auth/register",registerField).then(response=>{
             toast.success("User registered Successfully!")
         }).catch(err=>{
             toast.error(err?.response?.data?.error);

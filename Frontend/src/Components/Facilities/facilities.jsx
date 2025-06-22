@@ -8,7 +8,7 @@ const Facilities = (props) => {
   const fetchData = async () => {
     props.showLoader();
     try {
-      const response = await axios.get("http://localhost:4000/api/facility/get");
+      const response = await axios.get("https://medicampus-3.onrender.com/api/facility/get");
       setData(response.data.facility);
     } catch (err) {
       console.error("Error fetching data:", err);
@@ -24,7 +24,7 @@ const Facilities = (props) => {
   const handleDelete = async (id) => {
     props.showLoader();
     try {
-      await axios.delete(`http://localhost:4000/api/facility/delete/${id}`);
+      await axios.delete(`https://medicampus-3.onrender.com/api/facility/delete/${id}`);
       // Remove deleted item from local state
       setData(prev => prev.filter(item => item._id !== id));
     } catch (err) {

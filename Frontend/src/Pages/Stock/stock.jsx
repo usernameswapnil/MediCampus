@@ -20,7 +20,7 @@ const Stock = (props) => {
 
   const fetchData=async()=>{
     props.showLoader();
-    await axios.get(`http://localhost:4000/api/medicine/search-by-name?name=${medicineName}`).then((response)=>{
+    await axios.get(`https://medicampus-3.onrender.com/api/medicine/search-by-name?name=${medicineName}`).then((response)=>{
       
       if(response.data.medicines.length===0){
         setStocks([]);

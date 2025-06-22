@@ -12,7 +12,7 @@ const ForgotModal = (props) => {
    const sendOTPToMail =async()=>{
     if(inputField.email.trim().length===0) return toast.error("Please Enter email ")
     props.showLoader();
-    await axios.post("http://localhost:4000/api/auth/send-otp",{email:inputField.email}).then((response)=>{
+    await axios.post("https://medicampus-3.onrender.com/api/auth/send-otp",{email:inputField.email}).then((response)=>{
       console.log(response)
       setStep(2);
       setButtonText("Enter the OTP")
@@ -27,7 +27,7 @@ const ForgotModal = (props) => {
    const checkOtp=async()=>{
       if(inputField.otp.trim().length===0) return toast.error("Please enter the OTP")
       props.showLoader()
-      await axios.post("http://localhost:4000/api/auth/verify-otp",{email:inputField.email,otp:inputField.otp}).then((response)=>{
+      await axios.post("https://medicampus-3.onrender.com/api/auth/verify-otp",{email:inputField.email,otp:inputField.otp}).then((response)=>{
         setStep(3);
         setButtonText("Update new Password")
         alert(response.data.message)
@@ -42,7 +42,7 @@ const ForgotModal = (props) => {
    const resetPassword=async()=>{
       if(inputField.newPassword.trim().length===0) return toast.error("Please enter a new password")
       props.showLoader()
-      await axios.post("http://localhost:4000/api/auth/reset-password",{email:inputField.email,newPassword:inputField.newPassword}).then((response)=>{
+      await axios.post("https://medicampus-3.onrender.com/api/auth/reset-password",{email:inputField.email,newPassword:inputField.newPassword}).then((response)=>{
         alert(response.data.message)
         props.closeModal()
       }).catch(err=>{

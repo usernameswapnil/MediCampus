@@ -7,7 +7,7 @@ const Gallery = (props) => {
   useEffect(()=>{
       const fetchData=async()=>{
         props.showLoader()
-        await axios.get("http://localhost:4000/api/gallery/get").then((response)=>{
+        await axios.get("https://medicampus-3.onrender.com/api/gallery/get").then((response)=>{
           setData(response.data.images);
         }).catch(err=>{
           console.log(err); 

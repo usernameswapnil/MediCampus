@@ -21,7 +21,7 @@ const NearByHospital = (props) => {
     }
     const fetchData=async()=>{
       props.showLoader();
-      await axios.get("http://localhost:4000/api/hospital/get").then(resp=>{
+      await axios.get("https://medicampus-3.onrender.com/api/hospital/get").then(resp=>{
         setData(resp.data.hospitals);
         console.log(resp)
         
@@ -52,7 +52,7 @@ const NearByHospital = (props) => {
 
   const handleDelete=async(id)=>{
     props.showLoader();
-    await axios.delete(`http://localhost:4000/api/hospital/delete/${id}`,{withCredentials:true}).then(resp=>{
+    await axios.delete(`https://medicampus-3.onrender.com/api/hospital/delete/${id}`,{withCredentials:true}).then(resp=>{
       filterOutData(id)
     }).catch(err=>{
       toast.error(err?.response?.data?.error);

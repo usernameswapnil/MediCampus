@@ -19,7 +19,7 @@ const Report = (props) => {
     
     await axios
       .get(
-        `http://localhost:4000/api/medicine/search-by-name?name=${searchMedicineName}`
+        `https://medicampus-3.onrender.com/api/medicine/search-by-name?name=${searchMedicineName}`
       )
       .then((resp) => {
         console.log(resp);
@@ -85,7 +85,7 @@ const checkInputValid = () => {
 const handleSubmit=async()=>{
   if(selectedMedicines.length===0) return toast.error("Please select any medicine!")
   if(checkInputValid()) return toast.error("Please enter all the fields")
-    await axios.post(`http://localhost:4000/api/history/add`,{roll:props.studentDetail.roll,student:props.studentDetail._id,medicines:selectedMedicines},{withCredentials:true}).then(response=>{
+    await axios.post(`https://medicampus-3.onrender.com/api/history/add`,{roll:props.studentDetail.roll,student:props.studentDetail._id,medicines:selectedMedicines},{withCredentials:true}).then(response=>{
       toast.success(response.data.message);
       setTimeout(()=>{
         props.handleCloseModal();

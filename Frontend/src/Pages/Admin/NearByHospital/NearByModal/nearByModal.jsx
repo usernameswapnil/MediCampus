@@ -15,7 +15,7 @@ const NearByModal = (props) => {
     },[])
 
     const updateFunc=async()=>{
-        await axios.put(`http://localhost:4000/api/hospital/update/${props.clickedItem._id}`,inputField,{withCredentials:true}).then(resp=>{
+        await axios.put(`https://medicampus-3.onrender.com/api/hospital/update/${props.clickedItem._id}`,inputField,{withCredentials:true}).then(resp=>{
             window.location.reload();
         }).catch(err=>{
             toast.error(err?.response?.data?.error);
@@ -31,7 +31,7 @@ const NearByModal = (props) => {
             return;
         }
 
-        await axios.post("http://localhost:4000/api/hospital/add",inputField,{withCredentials:true}).then((resp)=>{
+        await axios.post("https://medicampus-3.onrender.com/api/hospital/add",inputField,{withCredentials:true}).then((resp)=>{
         window.location.reload();   
     }).catch(err=>{
         toast.error(err?.response?.data?.error);

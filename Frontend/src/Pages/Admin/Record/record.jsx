@@ -39,7 +39,7 @@ const Record = (props) => {
     }
     const fetchData=async function(){
         props.showLoader();
-        await axios.get(`http://localhost:4000/api/history/get-history?month=${selectedMonth}&year=${selectedYear}`,{withCredentials:true}).then(response=>{
+        await axios.get(`https://medicampus-3.onrender.com/api/history/get-history?month=${selectedMonth}&year=${selectedYear}`,{withCredentials:true}).then(response=>{
             console.log(response)
             setAllRecordModel(true);
             setData(response.data.history);
@@ -86,7 +86,7 @@ const Record = (props) => {
     const handleClick=async()=>{
         if(studentRoll.trim().length===0) return toast.error("Please Enter the correct Roll No!")
         props.showLoader()
-        await axios.get(`http://localhost:4000/api/history/get?roll=${studentRoll}`,{withCredentials:true}).then(resp=>{
+        await axios.get(`https://medicampus-3.onrender.com/api/history/get?roll=${studentRoll}`,{withCredentials:true}).then(resp=>{
             console.log(resp)
             setAllRecordModel(true)
             // setSelectedHistory(resp.data.history)

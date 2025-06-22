@@ -13,7 +13,7 @@ const ManageStaff = (props) => {
   }
   const fetchData=async()=>{
     props.showLoader();
-    await axios.get("http://localhost:4000/api/auth/get-staff").then((response)=>{
+    await axios.get("https://medicampus-3.onrender.com/auth/get-staff").then((response)=>{
          setStaffs(response.data.staffs) 
           
         }).catch(err=>{
@@ -24,7 +24,7 @@ const ManageStaff = (props) => {
   }
   const handleUpdate=async()=>{
     
-    await axios.put(`http://localhost:4000/api/auth/update-staff/${clickedStaff?._id}`,inputField,{withCredentials:true}).then(response=>{
+    await axios.put(`https://medicampus-3.onrender.com/api/auth/update-staff/${clickedStaff?._id}`,inputField,{withCredentials:true}).then(response=>{
       window.location.reload();
     }).catch(err=>{
       toast.error(err?.response?.data?.error)
@@ -42,7 +42,7 @@ const ManageStaff = (props) => {
 
 
     props.showLoader()
-    await axios.post("http://localhost:4000/api/auth/add-staff",inputField,{withCredentials:true}).then((resp)=>{
+    await axios.post("https://medicampus-3.onrender.com/api/auth/add-staff",inputField,{withCredentials:true}).then((resp)=>{
       console.log(resp)
       toast.success(resp.data.message);
       setStaffs([inputField,...staffs])
@@ -67,7 +67,7 @@ const ManageStaff = (props) => {
     setStaffs(newArr);
   }
   const handleDelete=async(id)=>{
-    await axios.delete(`http://localhost:4000/api/auth/delete-staff/${id}`,{withCredentials:true}).then((response)=>{
+    await axios.delete(`https://medicampus-3.onrender.com/api/auth/delete-staff/${id}`,{withCredentials:true}).then((response)=>{
       filterOutData(id)
     }).catch(err=>{
       toast.error(err?.response?.data?.error)

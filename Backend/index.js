@@ -15,7 +15,7 @@ app.use(cookieparser());
 
 app.use(cors({
     credentials:true,
-    origin:"https://medicampus-4.onrender.com"
+    origin:"https://medicampus-3.onrender.com"
 }));
 require("./connection");
 

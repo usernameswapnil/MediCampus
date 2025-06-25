@@ -3,6 +3,11 @@ MediCampus: A Smart College Dispensary System
 
 MediCampus is a full-stack web application designed to streamline and digitize the medical dispensary operations within a college campus. It supports distinct functionalities for Admins, Staff, and Students to ensure smooth, secure, and efficient healthcare management.
 
+## 🌐 Live Demo
+
+https://medicampus-4.onrender.com
+
+
 🏗️ Tech Stack
 Frontend: React.js
 
